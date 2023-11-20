@@ -1,10 +1,10 @@
-import { EndpointRepository } from './endpoint/EndpointRepository';
-import { MemoryEndpointRepository } from './endpoint/MemoryEndpointRepository';
-import { MongoEndpointRepository } from './endpoint/MongoEndpointRepository';
+import { BotRepository } from './bot/BotRepository';
+import { MemoryBotRepository } from './bot/MemoryBotRepository';
+import { MongoBotRepository } from './bot/MongoBotRepository';
 import { MongoProvider } from './MongoProvider';
 
 export interface Storage {
-  endpoint: EndpointRepository;
+  bot: BotRepository;
 }
 
 function getStorage(): Storage {
@@ -12,12 +12,12 @@ function getStorage(): Storage {
   switch (type) {
     case 'memory':
       return {
-        endpoint: new MemoryEndpointRepository()
+        bot: new MemoryBotRepository()
       };
     case 'mongodb': {
       const provider = MongoProvider.create();
       return {
-        endpoint: new MongoEndpointRepository(provider)
+        bot: new MongoBotRepository(provider)
       };
     }
     default:

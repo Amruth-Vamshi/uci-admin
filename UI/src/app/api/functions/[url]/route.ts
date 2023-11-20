@@ -1,5 +1,5 @@
-import { ExecuteEndpointResponse } from '@/lib/apiClient/ExecuteEndpointResponse';
-import { EndpointWorkflowMachine } from '@/lib/workflows/endpoint/machine/EndpointWorkflowMachine';
+import { ExecuteBotResponse } from '@/lib/apiClient/ExecuteBotResponse';
+import { BotWorkflowMachine } from '@/lib/workflows/bot/machine/BotWorkflowMachine';
 import { storage } from '@/lib/repositories/storage';
 import { NextResponse } from 'next/server';
 
@@ -7,20 +7,20 @@ export async function POST(req: Request, props: { params: { url: string } }) {
   const body = await req.text();
   const inputs = body ? JSON.parse(body) : Object.fromEntries(new URL(req.url).searchParams);
 
-  const endpoint = await storage.endpoint.tryGetByUrl(props.params.url);
-  if (!endpoint) {
-    return NextResponse.json('Endpoint not found', {
+  const bot = await storage.bot.tryGetByUrl(props.params.url);
+  if (!bot) {
+    return NextResponse.json('bot not found', {
       status: 404
     });
   }
 
-  const machine = EndpointWorkflowMachine.create(endpoint.definition, inputs);
+  const machine = BotWorkflowMachine.create(bot.definition, inputs);
   machine.start();
 
   try {
     await machine.wait();
 
-    const response: ExecuteEndpointResponse = {
+    const response: ExecuteBotResponse = {
       __logs: machine.readLogs(),
       ...machine.readOutputs()
     };

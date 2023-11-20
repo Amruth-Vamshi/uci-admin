@@ -2,7 +2,7 @@
 
 # No-Code Platform Boilerplate
 
-Powerful Next.js boilerplate. Clone this repo and start your no-code platform today. The platform allows you to create REST API endpoints using a no-code editor. You can request the endpoint from any HTTP client. Additionally, the boilerplate provides a simple UI to test your endpoints. You can easily extend this template and add your own features.
+Powerful Next.js boilerplate. Clone this repo and start your no-code platform today. The platform allows you to create REST API bots using a no-code editor. You can request the bot from any HTTP client. Additionally, the boilerplate provides a simple UI to test your bots. You can easily extend this template and add your own features.
 
 <p align="center">
   <img width="570" height="488" src=".github/preview.webp" alt="Preview of No-Code Platform Boilerplate">

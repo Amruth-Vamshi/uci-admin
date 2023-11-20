@@ -1,15 +1,10 @@
-import { DefaultLayout } from '@/components/layout/DefaultLayout';
-import { Home } from '@/components/theme/home/Home';
 import { Metadata } from 'next';
+import BotsPage from './bots/page';
 
 export const metadata: Metadata = {
-  title: 'NoCode API Builder Template'
+  title: 'UCI-Admin'
 };
 
 export default function Page() {
-  return (
-    <DefaultLayout>
-      <Home />
-    </DefaultLayout>
-  );
+  return BotsPage()
 }

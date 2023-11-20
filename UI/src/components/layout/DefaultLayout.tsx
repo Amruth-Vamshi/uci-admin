@@ -13,13 +13,9 @@ export function DefaultLayout(props: DefaultLayoutProps) {
         <Navbar
           items={[
             {
-              label: 'Home',
-              href: '/'
-            },
-            {
-              label: 'Endpoints',
-              href: '/endpoints',
-              children: ['/endpoints']
+              label: 'Bots',
+              href: '/bots',
+              children: ['/bots']
             }
           ]}
         />

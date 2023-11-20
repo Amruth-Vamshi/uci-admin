@@ -1,31 +1,31 @@
-import { CreateEndpointRequest } from './CreateEndpointRequest';
-import { ExecuteEndpointRequest } from './ExecuteEndpointRequest';
-import { ExecuteEndpointResponse } from './ExecuteEndpointResponse';
-import { UpdateEndpointRequest } from './UpdateEndpointRequest';
+import { CreateBotRequest } from './CreateBotRequest';
+import { ExecuteBotRequest } from './ExecuteBotRequest';
+import { ExecuteBotResponse } from './ExecuteBotResponse';
+import { UpdateBotRequest } from './UpdateBotRequest';
 
 export class ApiClient {
-  public static async createEndpoint(request: CreateEndpointRequest): Promise<string> {
-    const result = await httpRequest('/api/endpoints', {
+  public static async createbot(request: CreateBotRequest): Promise<string> {
+    const result = await httpRequest('/api/bots', {
       method: 'POST',
       body: JSON.stringify(request)
     });
     return result['id'];
   }
 
-  public static async updateEndpoint(id: string, request: UpdateEndpointRequest): Promise<void> {
-    await httpRequest(`/api/endpoints/${id}`, {
+  public static async updatebot(id: string, request: UpdateBotRequest): Promise<void> {
+    await httpRequest(`/api/bots/${id}`, {
       method: 'PUT',
       body: JSON.stringify(request)
     });
   }
 
-  public static async deleteEndpoint(id: string): Promise<void> {
-    await httpRequest(`/api/endpoints/${id}`, {
+  public static async deletebot(id: string): Promise<void> {
+    await httpRequest(`/api/bots/${id}`, {
       method: 'DELETE'
     });
   }
 
-  public static async executeEndpoint(url: string, request: ExecuteEndpointRequest): Promise<ExecuteEndpointResponse> {
+  public static async executebot(url: string, request: ExecuteBotRequest): Promise<ExecuteBotResponse> {
     return await httpRequest(`/api/functions/${url}`, {
       method: 'POST',
       body: JSON.stringify(request)
