@@ -1,15 +1,15 @@
 # UCI-Admin
 ## Todo
 - [ ] **UI.**
-  - [ ] Setup nocodejs next app.
-  - [ ] Setup configurable Library's services, gaurds and actions to the flow.
-  - [ ] Create nocodejs -> Xstate converter.
+  - [x] Setup nocodejs next app.
+  - [x] Setup configurable Library's services, gaurds and actions to the flow.
+  - [x] Create nocodejs -> Xstate converter.
   - [ ] Update UI to be similar to `n8n.io`.
 - [ ] **Library**
-  - [ ] Create dynamic service for REST API calls.
-  - [ ] Create If/else gaurd.
+  - [x] Create translate service.
+  - [x] Create If/else gaurd.
 - [ ] **Runner**
-  - [ ] Set up simple Xstate Runner (takes Xstate JSON as input and runs through it)
+  - [x] Set up simple Xstate Runner (takes Xstate JSON as input and runs through it)
   - [ ] Orchestrate Library's services, gaurds and actions.
      
 - [ ] **Common**
